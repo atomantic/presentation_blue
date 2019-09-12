@@ -34,10 +34,10 @@ html(lang='en')
           ul
             li Principal SWE, Disney
             li 17 years in Industry
+            li Full Stack
+            li Teaching
             li DevSecOps
             li Machine Learning
-            li Rapid Prototyping
-            li etc ¯\_(ツ)_/¯
             li "Own It or It Will Own You"
             li "Specialization is for Insects"
 
@@ -76,6 +76,10 @@ html(lang='en')
           img.fill(src="images/calendar-6-months.png")
         .box.top.darker
           h4 Only 6-Months to Live?
+
+      section
+        .fullscreen
+          img.fill(src="images/drawing.png")
 
       section
         .fullscreen
@@ -125,11 +129,132 @@ html(lang='en')
         .box
           h1 I run a lot of automation
       
-      section.graph.blue
+      section
+        .fullscreen
+          img.fill(src="images/spreadsheet-1.png")
+      
+      section
+        .fullscreen
+          img.fill(src="images/spreadsheet-2.png")
+
+      section
+        .fullscreen
+          img.fill(src="images/spreadsheet-3.png")
+
+      section.littleboxes.blue
         .box
           h1 Performance Tuning
-          .mid JSON.parse vs &nbsp;<span class="em-green">``key`val</span>&nbsp; Header String
+          .mid JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header String
           img.fillw(src="images/nodeperf_jsonparser_vs_headers.png")
+
+      section.littleboxes.blue
+        .box
+          h1 JSON is Complex
+          .mid (more so than we need)
+          ul
+            li Number / String / Boolean
+            li parsing <span class="em-blue notify" title="7 characters!" data-position="right center">[{",:}]</span>
+            li: span.em-orange Nested Objects
+            li: span.em-yellow Arrays of Multiple Data Types
+            li: span.em-red null
+
+      section.blue.littleboxes
+        .box
+          h2 😸 Embrace The Looseness of JavaScript
+          pre: code.language-javascript.
+            if(obj.foo === false || obj.foo === 0 || obj.foo === null || typeof obj.foo === "undefined") {
+              // handle falsy case
+            }
+            // ok
+          h2 instead, test if <a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">falsy</a>
+          pre: code.language-javascript.
+            if(!obj.foo) { // if obj.foo is "falsy"
+              // handle it
+            }
+            // ok
+          h2 ⚡ OR ⚡
+          pre: code.language-javascript.
+            return !!obj.foo // If you want a boolean: returns true if truthy, false if falsy
+
+      section.littleboxes.blue
+
+        .box.z150
+          .mid Complexity Reduced
+          .row
+            .col
+              h4 JSON
+              pre: code.language-javascript.
+                {
+                  "key": "val",
+                  "key2": "val2"
+                }
+            .col ➡️
+            .col
+              h4 Ticks
+              pre: code.language-javascript.
+                'key`val``key2`val2'
+          pre.row: code.language-javascript.
+            // a header called `_` with a value like 'key`val``key2`val2'
+            const params = Object.fromEntries(
+              req.headers._.split('``')       // into pairs 'key`val'
+                .map(pair=>pair.split('`'))   // [['key','val'],['key2','val2']]
+            ) // now as js object: {key:'val', key2:'val2'}
+      
+      section.littleboxes.blue
+        .box
+          h1 HTTP Body Parsing
+          .mid Complexity Reduced
+          pre: code.language-javascript.
+            // a header called `_` with a value like 'key`val``key2`val2'
+            const params = Object.fromEntries(
+              req.headers._.split('``')       // into pairs 'key`val'
+                .map(pair=>pair.split('`'))   // [['key','val'],['key2','val2']]
+            ) // now as js object: {key:'val', key2:'val2'}
+      
+      section.treebark.cocoa
+          .box
+            h2 JavaScript
+            .mid sucks
+            h3 At Computation
+            pre: code.language-javascript.
+              console.assert( 3 * 2.1 === 6.3 )
+            h1
+              .emojiTalker
+                span.emoji.animated.pulse.delay4 😭
+                span.iconQuote
+                  span.iconQuoteBubble.animated.tada.delay4 🗯
+                  span.iconQuoteContent.animated.tada.delay5 👎
+            pre
+              code.language-javascript.notify(title="Always 64-bit Floating Point").
+                3 * 2.1 => 6.300000000000001
+                .1 + .2 => 0.30000000000000004
+                (.1+.2).toFixed(2) => "0.30" // <- a STRING?!
+                Number((.1+.2).toFixed(2)) => .3 // but YUCK!
+            h2 Fix with <a href="http://mathjs.org/" target="off">Math.js</a>
+            pre
+              code.language-javascript.
+                const math = require('mathjs')
+                math.add(.1, .2) => .3 // 😄
+
+      section.midnight.washi
+          .box
+            h2 What About Big Numbers?
+            h2: a(href="https://www.npmjs.com/package/big-integer") big-integer
+            .mid Note: &nbsp;<a href="https://tc39.github.io/proposal-bigint/">BigInt is now native in JS!</a>
+            pre: code.language-javascript.
+                const bigInt = require('big-integer')
+
+                const bigHex = bigInt('7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60c', 16)
+                const googol = bigInt("1e100")
+              
+                console.log(bigHex.next().toString(16))
+                => 7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60d
+
+                // https://twitter.com/antic/status/1109957641407791104
+                const ferrier = bigInt('20988936657440586486151264256610222593863921') // base10
+                console.log(ferrier.toString(16), '🤯') // to base16
+                => f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f1 🤯
+            a(href="https://twitter.com/antic/status/1109957641407791104") cool primes
       
       section
         .fullscreen
@@ -165,22 +290,6 @@ html(lang='en')
           a(href="https://github.com/atomantic/ml_class") github.com/atomantic/ml_class
           .mid <span class="reg">🙀</span> "...will automation&nbsp;<span class="em-red animated flash delay5">destroy</span> &nbsp;<strike class="notify" title="humans" data-position="bottom center">human jobs</strike>?"
 
-      section.gplay
-        .box.z150
-          h2 Most AI (Machine Learning)
-          .mid is just
-          h2.notify(title="Long way from Synthetic Intelligence (SI)", data-position="bottom center") Stupid Math
-      
-      section
-        .fullscreen
-          img.opac80.fill(src="images/spreadsheet.png")
-        .box.notify(title="peak spreadsheet", data-position="bottom center")
-          h2 insane powers
-
-      section
-        .fullscreen
-          img.fill(src="images/stock_signals.png")
-
       section.gplay.jellybean
         .box.dark
           h2 Automate Backup and Recovery
@@ -189,13 +298,6 @@ html(lang='en')
           ul
             li: a(href="https://dotfiles.github.io") Dotfiles Directory
             li: a(href="https://github.com/atomantic/dotfiles") My Dotfiles (github.com/atomantic/dotfiles)
-
-      section.white
-        .fullscreen
-          img.fillh(src="images/rectangular_rotations.png")
-        .box.black.notify(title="not the most elegant code, but it works!", data-position="bottom center")
-          h1 Drawing Boxes
-          a(href="https://github.com/atomantic/rectanglar_rotations") github.com/atomantic/rectanglar_rotations
 
       section
         .fullscreen
