@@ -609,6 +609,15 @@ h1 img {
   text-shadow: none;
   zoom: 130%;
 }
+.col {
+  width: auto;
+}
+.row {
+  margin: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
 @-webkit-keyframes rocking {
   from {
     -webkit-transform: rotate(-5deg);

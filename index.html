@@ -32,10 +32,10 @@
           <ul>
             <li>Principal SWE, Disney</li>
             <li>17 years in Industry</li>
+            <li>Full Stack</li>
+            <li>Teaching</li>
             <li>DevSecOps</li>
             <li>Machine Learning</li>
-            <li>Rapid Prototyping</li>
-            <li>etc ¯\_(ツ)_/¯</li>
             <li>"Own It or It Will Own You"</li>
             <li>"Specialization is for Insects"</li>
           </ul>
@@ -76,6 +76,9 @@
         <div class="box top darker">
           <h4>Only 6-Months to Live?</h4>
         </div>
+      </section>
+      <section>
+        <div class="fullscreen"><img class="fill" src="images/drawing.png"></div>
       </section>
       <section>
         <div class="fullscreen"><img class="fill" src="images/yosh-ginsu-qexZLgMcbPc-unsplash.jpg">
@@ -126,10 +129,124 @@
           <h1>I run a lot of automation</h1>
         </div>
       </section>
-      <section class="graph blue">
+      <section>
+        <div class="fullscreen"><img class="fill" src="images/spreadsheet-1.png"></div>
+      </section>
+      <section>
+        <div class="fullscreen"><img class="fill" src="images/spreadsheet-2.png"></div>
+      </section>
+      <section>
+        <div class="fullscreen"><img class="fill" src="images/spreadsheet-3.png"></div>
+      </section>
+      <section class="littleboxes blue">
         <div class="box">
           <h1>Performance Tuning</h1>
-          <div class="mid">JSON.parse vs &nbsp;<span class="em-green">``key`val</span>&nbsp; Header String</div><img class="fillw" src="images/nodeperf_jsonparser_vs_headers.png">
+          <div class="mid">JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header String</div><img class="fillw" src="images/nodeperf_jsonparser_vs_headers.png">
+        </div>
+      </section>
+      <section class="littleboxes blue">
+        <div class="box">
+          <h1>JSON is Complex</h1>
+          <div class="mid">(more so than we need)</div>
+          <ul>
+            <li>Number / String / Boolean</li>
+            <li>parsing <span class="em-blue notify" title="7 characters!" data-position="right center">[{",:}]</span></li>
+            <li><span class="em-orange">Nested Objects</span></li>
+            <li><span class="em-yellow">Arrays of Multiple Data Types</span></li>
+            <li><span class="em-red">null</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="blue littleboxes">
+        <div class="box">
+          <h2>😸 Embrace The Looseness of JavaScript</h2>
+          <pre><code class="language-javascript">if(obj.foo === false || obj.foo === 0 || obj.foo === null || typeof obj.foo === "undefined") {
+  // handle falsy case
+}
+// ok</code></pre>
+          <h2>instead, test if <a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">falsy</a></h2>
+          <pre><code class="language-javascript">if(!obj.foo) { // if obj.foo is "falsy"
+  // handle it
+}
+// ok</code></pre>
+          <h2>⚡ OR ⚡</h2>
+          <pre><code class="language-javascript">return !!obj.foo // If you want a boolean: returns true if truthy, false if falsy
+</code></pre>
+        </div>
+      </section>
+      <section class="littleboxes blue">
+        <div class="box z150">
+          <div class="mid">Complexity Reduced</div>
+          <div class="row">
+            <div class="col">
+              <h4>JSON</h4>
+              <pre><code class="language-javascript">{
+  "key": "val",
+  "key2": "val2"
+}</code></pre>
+            </div>
+            <div class="col">➡️</div>
+            <div class="col">
+              <h4>Ticks</h4>
+              <pre><code class="language-javascript">'key`val``key2`val2'</code></pre>
+            </div>
+          </div>
+          <pre class="row"><code class="language-javascript">// a header called `_` with a value like 'key`val``key2`val2'
+const params = Object.fromEntries(
+  req.headers._.split('``')       // into pairs 'key`val'
+    .map(pair=>pair.split('`'))   // [['key','val'],['key2','val2']]
+) // now as js object: {key:'val', key2:'val2'}
+</code></pre>
+        </div>
+      </section>
+      <section class="littleboxes blue">
+        <div class="box">
+          <h1>HTTP Body Parsing</h1>
+          <div class="mid">Complexity Reduced</div>
+          <pre><code class="language-javascript">// a header called `_` with a value like 'key`val``key2`val2'
+const params = Object.fromEntries(
+  req.headers._.split('``')       // into pairs 'key`val'
+    .map(pair=>pair.split('`'))   // [['key','val'],['key2','val2']]
+) // now as js object: {key:'val', key2:'val2'}
+</code></pre>
+        </div>
+      </section>
+      <section class="treebark cocoa">
+        <div class="box">
+          <h2>JavaScript</h2>
+          <div class="mid">sucks</div>
+          <h3>At Computation</h3>
+          <pre><code class="language-javascript">console.assert( 3 * 2.1 === 6.3 )</code></pre>
+          <h1>
+            <div class="emojiTalker"><span class="emoji animated pulse delay4">😭</span><span class="iconQuote"><span class="iconQuoteBubble animated tada delay4">🗯</span><span class="iconQuoteContent animated tada delay5">👎</span></span></div>
+          </h1>
+          <pre><code class="language-javascript notify" title="Always 64-bit Floating Point">3 * 2.1 => 6.300000000000001
+.1 + .2 => 0.30000000000000004
+(.1+.2).toFixed(2) => "0.30" // <- a STRING?!
+Number((.1+.2).toFixed(2)) => .3 // but YUCK!</code></pre>
+          <h2>Fix with <a href="http://mathjs.org/" target="off">Math.js</a></h2>
+          <pre><code class="language-javascript">const math = require('mathjs')
+math.add(.1, .2) => .3 // 😄
+</code></pre>
+        </div>
+      </section>
+      <section class="midnight washi">
+        <div class="box">
+          <h2>What About Big Numbers?</h2>
+          <h2><a href="https://www.npmjs.com/package/big-integer">big-integer</a></h2>
+          <div class="mid">Note: &nbsp;<a href="https://tc39.github.io/proposal-bigint/">BigInt is now native in JS!</a></div>
+          <pre><code class="language-javascript">const bigInt = require('big-integer')
+
+const bigHex = bigInt('7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60c', 16)
+const googol = bigInt("1e100")
+
+console.log(bigHex.next().toString(16))
+=> 7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60d
+
+// https://twitter.com/antic/status/1109957641407791104
+const ferrier = bigInt('20988936657440586486151264256610222593863921') // base10
+console.log(ferrier.toString(16), '🤯') // to base16
+=> f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f1 🤯</code></pre><a href="https://twitter.com/antic/status/1109957641407791104">cool primes</a>
         </div>
       </section>
       <section>
@@ -165,22 +282,6 @@
           <div class="mid"><span class="reg">🙀</span> "...will automation&nbsp;<span class="em-red animated flash delay5">destroy</span> &nbsp;<strike class="notify" title="humans" data-position="bottom center">human jobs</strike>?"</div>
         </div>
       </section>
-      <section class="gplay">
-        <div class="box z150">
-          <h2>Most AI (Machine Learning)</h2>
-          <div class="mid">is just</div>
-          <h2 class="notify" title="Long way from Synthetic Intelligence (SI)" data-position="bottom center">Stupid Math</h2>
-        </div>
-      </section>
-      <section>
-        <div class="fullscreen"><img class="opac80 fill" src="images/spreadsheet.png"></div>
-        <div class="box notify" title="peak spreadsheet" data-position="bottom center">
-          <h2>insane powers</h2>
-        </div>
-      </section>
-      <section>
-        <div class="fullscreen"><img class="fill" src="images/stock_signals.png"></div>
-      </section>
       <section class="gplay jellybean">
         <div class="box dark">
           <h2>Automate Backup and Recovery</h2>
@@ -189,12 +290,6 @@
             <li><a href="https://dotfiles.github.io">Dotfiles Directory</a></li>
             <li><a href="https://github.com/atomantic/dotfiles">My Dotfiles (github.com/atomantic/dotfiles)</a></li>
           </ul>
-        </div>
-      </section>
-      <section class="white">
-        <div class="fullscreen"><img class="fillh" src="images/rectangular_rotations.png"></div>
-        <div class="box black notify" title="not the most elegant code, but it works!" data-position="bottom center">
-          <h1>Drawing Boxes</h1><a href="https://github.com/atomantic/rectanglar_rotations">github.com/atomantic/rectanglar_rotations</a>
         </div>
       </section>
       <section>
