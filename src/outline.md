@@ -4,6 +4,7 @@ Title: Adam Eivy | Blue Origin
 
 ## Story
 
+
 - Who am I?
 - Eclectic (beetle deck, drawing, code, 10 ideas, etc)
 - Like to plan, prepare (earthquake, etc)
@@ -19,3 +20,5 @@ Title: Adam Eivy | Blue Origin
 - Big fan of node and functional programming
 - Calendar/diet/schedule
 - Like to predict the future 
+
+- projects: XYZ (improved X by Y, impact Z)

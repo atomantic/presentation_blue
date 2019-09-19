@@ -11,18 +11,27 @@ html(lang='en')
       section
         .fullscreen
           img.fill(src="images/wallpaper.jpg")
-        .box.top.right.notify(title="Swipe or use arrow keys to navigate &rarr;", data-position="bottom center", data-noarrow="1")
-          h2 Hello <span class="accent">Blue</span> Origin
-          .mid from
-          h2.notranslate Adam Eivy <span class="rocking accent">\[._.]/</span>
-            .me.center
-          h2
-            a(href='https://twitter.com/antic')
-              i.fa.fa-twitter-square
-              | &nbsp;@antic
-          h4 Talk Time: 45 minutes
-          h4 Updated: 2019.08.20
-          a(href="https://bit.ly/adam_blue") Hosted on bit.ly/adam_blue
+        .multibox
+          .box.top.left
+            h2 Hello <span class="accent">Blue</span> Origin
+            .mid from
+            h2.notranslate Adam Eivy <span class="rocking accent">\[._.]/</span>
+              .me.center
+          .box.top.right.notify(title="Swipe or use arrow keys to navigate &rarr;", data-position="bottom center", data-noarrow="1")
+            h2
+              a(href='https://twitter.com/antic')
+                i.fa.fa-twitter-square
+                | &nbsp;@antic
+            h2
+              a(href='https://adameivy.com')
+                i.fa.fa-external-link-square
+                | &nbsp;adameivy.com
+            h2
+              a(href='https://bit.ly/adam_blue')
+                i.fa.fa-desktop
+                | &nbsp;bit.ly/adam_blue
+            h4 Talk Time: 50 minutes
+            h4 Updated: 2019.09.19
             
       section
         .fullscreen
@@ -34,12 +43,24 @@ html(lang='en')
           ul
             li Principal SWE, Disney
             li 17 years in Industry
-            li Full Stack
+            li Full Stack (Data, UI, APIs, etc)
             li Teaching
             li DevSecOps
             li Machine Learning
-            li "Own It or It Will Own You"
-            li "Specialization is for Insects"
+            li: span.notify(title="Robert Heinlein") "Specialization is for Insects"
+
+      section
+        .fullscreen
+          img.fill(src="images/photo-1524995997946-a1c2e315a42f.jpeg")
+          .credit.em-blue credit:&nbsp;
+            a(href="https://unsplash.com/@syinq?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Susan Yin
+        .box.left.darker
+          h2 Unusual Education
+          ul
+            li Started Self-Taught
+            li Web Development, Seattle Central
+            li Teaching at Seattle Central
+            li Startups and Companies
 
       section
         .fullscreen
@@ -53,11 +74,23 @@ html(lang='en')
 
       section
         .fullscreen
+          img.fill(src="images/calendar-6-months.png")
+        .box.top.darker
+          h4 Only 6-Months to Live?
+
+      section
+        .fullscreen
+          img.fill(src="images/drawing.jpg")
+        .box.bottom
+          .mid daily creativity is vital
+
+      section
+        .fullscreen
           img.fill(src="images/joanna-kosinska-1_CMoFsPfso-unsplash.jpg")
           .credit.left credit:&nbsp;
             a(href="https://unsplash.com/@joannakosinska?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Joanna Kosinska
         .box.right.darker
-          h2 I Write 10 Ideas Every Day
+          h2 10 Ideas Every Day
           .mid Benefits of Giving Up Alcohol
           ol.tight
             li always be ready for an emergency
@@ -65,21 +98,11 @@ html(lang='en')
             li more drawing time
             li more energy
             li: span.em-green longer, healthier life (+ 5-10 years)
-            li always be able to read to <span class="em-blue">Ilya</span>
+            li always be able to read to <span class="em-blue">my daughter</span>
             li more personal time
             li play more music
             li better sleep
             li save money
-      
-      section
-        .fullscreen
-          img.fill(src="images/calendar-6-months.png")
-        .box.top.darker
-          h4 Only 6-Months to Live?
-
-      section
-        .fullscreen
-          img.fill(src="images/drawing.png")
 
       section
         .fullscreen
@@ -106,59 +129,199 @@ html(lang='en')
             a(href="http://www.donaldedavis.com/PARTS/allyours.html",target="off") Don Davis
         .box.bottom
           h1 How's that Space Program?
-
-      section
-        .fullscreen
-          img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
-          .credit credit:&nbsp;
-            a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
-        .box.bottom
-          h1 what a time to be alive
       
       section
         .fullscreen
-          img.fill(src="images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg")
-          .credit credit:&nbsp;
-            a(href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Jeremy Thomas
+          img.fill(src="images/automation.jpg")
         .box
-          h1 ...
+          h1 I like automation
+          .mid: a(href="https://adameivy.com/presentation_automate_yourself") Automate Yourself Out of a Job
       
       section
         .fullscreen
-          img.fill(src="images/automation.png")
+          img.fill(src="images/spreadsheet-1.jpg")
+      
+      section
+        .fullscreen
+          img.fill(src="images/spreadsheet-2.jpg")
+
+      section
+        .fullscreen
+          img.fill(src="images/spreadsheet-3.jpg")
+
+      section.gplay.jellybean
+        .fullscreen
+          img.fill(src="images/github.png")
+
+      section
+        .fullscreen
+          x-gif.fill(src="images/dotfiles.gif", fill)
+        .box.right
+          h2 My dotfiles are Public
+          h2: a(href="https://github.com/atomantic/dotfiles") github.com/atomantic/dotfiles
+          
+      section.gplay.jellybean
+        .fullscreen
+          img.fill(src="images/mlclass.png")
+        .box.black
+          h1 3-hour ML Workshop
+          .mid <span class="em-green">250+ participants</span>
+          h2: a(href="https://github.com/atomantic/ml_class") github.com/atomantic/ml_class
+           
+      section.diagmonds.black
         .box
-          h1 I run a lot of automation
+          h1 Public Speaking
+          .mid: span.em-green.notify(title="<a href='https://adameivy.com/#/4', target='off'>a few are public</a>") 40+ talks
+          ul
+            li Docker / Kubernetes
+            li DevSecOps
+            li Node.js Performance &amp; Oddities
+            li Security for Web Devs
+            li Lambda/Serverless
+            li Automation &amp; CI/CD
+            li Developer Experience
       
       section
         .fullscreen
-          img.fill(src="images/spreadsheet-1.png")
-      
-      section
-        .fullscreen
-          img.fill(src="images/spreadsheet-2.png")
+          .credit.em-blue.left Story 1
+        img.fillh(src="images/photo-1454165804606-c3d57bc86b40.jpeg")
+        .box
+          h2 Open Source Software Approval Committee
+          .mid member / contributor
+          ul
+            li reviewed/approved OSS
+            li automation tooling for developers
 
       section
         .fullscreen
-          img.fill(src="images/spreadsheet-3.png")
+          .credit.em-blue.left 😓 Status Quo
+        img.fillh(src="images/photo-1454165804606-c3d57bc86b40.jpeg")
+        .box.black
+          h1 Hey, I want to use Node.js <span class="em-green">4.4.4</span>
+          .mid submit a ticket with a &nbsp;<span class="em-red">spreadsheet</span>
+          ul
+            li What's the License?
+            li Usage Questions
+            li.notify(title="no approval for SemVer ranges (<, <=, >=, ~, ^, 1.x, 1.2.x, etc)", data-position="bottom left")
+              span.em-orange specific version
 
+      section.gplay.jellybean
+        .box
+          pre: code.language-bash.notify(title="Standard Node.js Enforcer").
+            ⇒  snoden&nbsp;&nbsp;&nbsp;
+
+          pre.notify(title="I wrote a tool (shared at 2016 Node Summit)", data-position="bottom center")
+            code.language-yaml.
+              Usage:  &lt;command&gt; [options]
+
+              Commands:
+                check   ☑️  check this project for standards, security and OSS
+                update  📦  update this tool to the latest version
+
+              Options:
+                  --dev              🚧  include devDependencies in npm shrinkwrap
+                  --skip-clean       ⏩  skip breaking on dirty git repo state
+                  --skip-gitignore   🙈  do not check for node_modules in .gitignore
+                  --skip-npm         ⏩  skip npm install step (speeds up check if already done)
+                  --skip-nsp         ☠  skip nsp (not recommended, enables offline test)
+                  --skip-shrinkwrap  ⚠️  skip npm shrinkwrap (not recommended)
+                  --skip-update      📦  skip updating node packages (using updtr)
+                  --skip-xls         ⏩  skip excel spreadsheet creation (useful on build server)
+                  -a, --auto         ⛏  auto-fix issues without prompting or throwing errors
+                  -b, --build        🤖  bot mode: skip corrective user prompts (throws errors)
+
+      section.gplay.jellybean
+        .box
+          pre: code.language-bash.
+            ⇒  snoden check
+          pre.notify(title="Generates OSS submission form with package info for Review Committee", data-position="bottom center"): code.language-yaml.notify(title='\\[._.]/ - so easy').
+            ❄️   \[._.]/ - Hi, I'm Snoden, the Standard Node.js Enforcer. Checking your package...
+            ✅   git workspace is clean
+            ✅   .nvmrc set to 4.4.7
+            ⚡️   npm install
+            ✅   node_modules installed
+            ✅   dependencies packages are pinned
+            ✅   devDependencies packages are pinned
+            ⚡️   updating package deps with updtr
+            ✅   packages up-to-date
+            ✅   npm-shrinkwrap found
+            ✅   .gitignore contains node_modules
+            ⚡️   nsp check
+            ✅   (+) No known vulnerabilities found
+
+              compiling xlsx [====================================] 100% 0.0s
+
+      section
+        .fullscreen
+          img.fillwb(src="images/drown.jpg")
+          .credit.em-blue.left 😄 Another Opportunity
+        .box
+          h1 Drowning
+          h1.mid the
+          h1 Committee
+
+      section
+        .fullscreen
+          img.fill(src="images/ross.png")
+        .box
+          h2 ...So, I wrote another tool
+          .mid <span class="em-orange">RoSS</span> - Reviewer of Open Source Software
+          
+      section.gplay.jellybean
+        .box
+          h2 <span class="em-blue">Snoden</span> &amp; <span class="em-green">RoSS</span> Together
+          ul
+            li: span.notify(title="Essentialism by Greg McKeown") I left committe to focus on other things
+            li Converted Intern to Full-Time
+            li Many improvements beyond my initial version
+            li Still running today
+          
       section.littleboxes.blue
+        .fullscreen
+          .credit.em-blue.left Story 2
+        .box
+          h1 Kubernetes Microservices
+          .mid Name: [redacted]
+          ul
+            li Node.js
+            li Vanilla JavaScript in Browsers (deployed everywhere)
+            li: a.notify(href="http://containersummit.io/city-series/2016/seattle", target="off", title="Fireside Chat: 2016") Kubernetes (GKE)
+            li CI/CD DevSecOps (<span class="em-green">20x</span> daily deployments)
+            li Telemetry-Driven Development
+      
+      section.littleboxes.blue
+        .fullscreen
+        .box
+          h1 Full Service Ownership
+          .mid My Responsibilities
+          ul
+            li Legal / Compliance
+            li All Code / Architecture
+            li DevOps
+            li Tests (headless UI, API, synthetics, etc)
+            li: span.notify(title="2 calls / 2 years, automagically resolved by K8s") Production Support
+            li Security Modeling / Resolutions
+            li BI Dashboards (New Relic)
+      section.littleboxes.blue
+        .fullscreen
         .box
           h1 Performance Tuning
           .mid JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header String
           img.fillw(src="images/nodeperf_jsonparser_vs_headers.png")
 
       section.littleboxes.blue
+        .fullscreen
         .box
           h1 JSON is Complex
           .mid (more so than we need)
           ul
-            li Number / String / Boolean
-            li parsing <span class="em-blue notify" title="7 characters!" data-position="right center">[{",:}]</span>
             li: span.em-orange Nested Objects
             li: span.em-yellow Arrays of Multiple Data Types
-            li: span.em-red null
+            li parsing <span class="em-blue notify" title="7 characters!" data-position="right center">[{",:}]</span>
+            li Number / String / Boolean / <span class="em-red">null</span>
 
       section.blue.littleboxes
+        .fullscreen
         .box
           h2 😸 Embrace The Looseness of JavaScript
           pre: code.language-javascript.
@@ -177,7 +340,16 @@ html(lang='en')
             return !!obj.foo // If you want a boolean: returns true if truthy, false if falsy
 
       section.littleboxes.blue
-
+        .fullscreen
+          img.fill(src="images/spacex-TV2gg2kZD1o-unsplash.jpg")
+          .credit.em-blue credit:&nbsp;
+            a(href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") SpaceX
+        .box.z150
+          h2 What if we don't POST a body at all?
+          .mid send the data as a HEADER string...
+      
+      section.littleboxes.blue
+        .fullscreen
         .box.z150
           .mid Complexity Reduced
           .row
@@ -201,64 +373,355 @@ html(lang='en')
             ) // now as js object: {key:'val', key2:'val2'}
       
       section.littleboxes.blue
+        .fullscreen
+        .box.z200
+          h2 Success!
+          h4 <span class="em-red">26.8ms</span> ➡️ <span class="em-green">1.11ms</span>
+          .mid with caveat
+          h4 😲 Documentation / Hand-off
+
+      section.escheresque.midnight
+        .fullscreen
+          .credit.em-blue.left Story 3
         .box
-          h1 HTTP Body Parsing
-          .mid Complexity Reduced
+          h1 S3 Auth Lambda
+          .mid Challenges with Shared Solution
+          ul
+            li <span class="em-red">Java</span> developers wrote <span class="em-green">Node.js</span> code
+            li Large codebase
+            li Solution Required IdP Client Secret
+            li <span class="em-red">No Secrets</span> in Lambda@Edge!
+            li <span class="em-red">1 MB</span> limit for CloudFront Lambda@Edge
+            li: span.notify(title="(every CSS/image/3rd party lib file)") Excessive Lambda Hits
+
+      section.white
+        .fullscreen
+          img.fillh(src="images/IdPLambda-flow-1.png")
+        .box.top.right
+          h4 Original HLA
+
+      section.escheresque.midnight
+        .box.left.notify(title="some red flags")
+          pre: code.language-javascript. 
+            var unprotectedUris = [
+              RegExp("/public/.*"), 
+              RegExp("/favicon.ico"), 
+              RegExp("/css/.*"), 
+              RegExp("/js/.*"), 
+              RegExp(".*touch-icon.*")
+            ];
+
+            function isUnprotected(uri) {
+                for (var x = 0; x < unprotectedUris.length; x++) {
+                    var pattern = unprotectedUris[x];
+                    if (pattern.test(uri))
+                        return true;
+                }
+                return false;
+            }
+            if (isUnprotected(request.uri)) {
+                console.log("Allowing access to unprotected resource:" + request.uri);
+                callback(null, request);
+                return;
+            }
+
+      section.escheresque.midnight
+        .fullscreen
+          .credit.em-blue.left 🔎 Project 2
+        .box
+          h2 Steps
+          ol
+            li CloudFront Behaviors for Public assets
+            li Remove IdP Callback
+            li Major Code Refactor
+
+      section.white
+        .fullscreen
+          .box.white
+            .row
+              .col
+                img.fill(src="images/IdPLambda-flow-1.png")
+              .col(style="vertical-align:middle;height:100%;margin:auto;text-shadow:none") ➡️
+              .col
+                img.fill(src="images/IdPLambda-flow-2.png")
+
+      section.escheresque.midnight
+        .box
+          h1 Refactoring S3 Auth Lambda
+          .mid Guiding Ideas
+          ul.noprefix
+            li ⚡ Functional Programming
+            li ↩️ Return ASAP
+            li 📦 Modularize Heavily
+            li 💻 Use (understandable) Regular Expressions
+            li ❌ Delete Code <span class="em-red">original &gt;800 SLOC</span>
+
+      section.escheresque.midnight
+        .box.left.notify(title="❎ no hash eval loops<br/>❎ no setCookie Function<br/>✅ RegExp<br/>✅ Redirect (from 401 handler)", data-position="right middle")
+          .mid jwt.html (in S3, not Lambda)
+          pre: code.language-javascript.line-numbers.
+            &lt;html&gt;&lt;head&gt;&lt;script type="text/javascript"&gt;
+              var h = window.location.hash
+              var tokenMatch = h.match(/access_token=([^&]+)/)
+              var expiresMatch = h.match(/expires_in=([^&]+)/)
+              if(tokenMatch && expiresMatch){
+                document.cookie = 'jwt='+tokenMatch[1]+';max-age='+expiresMatch[1]
+              }
+              var target = sessionStorage.redirectUri||'/'
+              if(target.includes('jwt.html')) target = '/'
+              sessionStorage.clear()
+              window.location = target
+            &lt;/script&gt;&lt;/head&gt;&lt;/html&gt;
+         
+      section.escheresque.midnight
+        .box
+          h2 First Stab
+          .mid lambda/auth.js
+          pre.line-numbers(data-line="11"): code.language-javascript.
+            const getJwt = require('./lib/getJwt')
+            const JwtUtil = require('./lib/jwtUtil')
+            const jwt = new JwtUtil(require('./data/jwks'))
+            const response401 = require('./lib/response401')
+
+            exports.handler = (event, context, callback) => {
+              const request = event.Records[0].cf.request
+              const token = getJwt(request)
+              if (!token) return callback(null, response401('bad token'))
+              try {
+                const tokenData = jwt.verify(token)
+                console.log("JWT validated", JSON.stringify(tokenData, null, 2))
+                request.headers['access-control-allow-origin'] = [ 
+                    { key: 'Access-Control-Allow-Origin', value: '*' } 
+                ]
+                return callback(null, request) // pass request through to S3
+              } catch (err) {
+                callback(null, response401(err))
+              }
+            }
+      section.escheresque.midnight
+        .box
+          .mid lambda/lib/response401.js
           pre: code.language-javascript.
-            // a header called `_` with a value like 'key`val``key2`val2'
-            const params = Object.fromEntries(
-              req.headers._.split('``')       // into pairs 'key`val'
-                .map(pair=>pair.split('`'))   // [['key','val'],['key2','val2']]
-            ) // now as js object: {key:'val', key2:'val2'}
-      
-      section.treebark.cocoa
-          .box
-            h2 JavaScript
-            .mid sucks
-            h3 At Computation
+            module.exports = function response401(text) {
+                return {
+                    body: `&lt;script type="text/javascript"&gt;
+                    sessionStorage.redirectUri = window.location.href;
+                    window.location.href='https://REDACTED_IDP_URL';
+                    &lt;/script&gt;`,
+                    bodyEncoding: 'text',
+                    status: '401',
+                    statusDescription: 'Authentication Required (' + text + ')'
+                }
+            }
+
+      section.escheresque.midnight
+        .multibox
+          .title.mid lambda/lib/getJwt.js (with RegExp)
+          .box.left
+            h4.title Original
             pre: code.language-javascript.
-              console.assert( 3 * 2.1 === 6.3 )
-            h1
-              .emojiTalker
-                span.emoji.animated.pulse.delay4 😭
-                span.iconQuote
-                  span.iconQuoteBubble.animated.tada.delay4 🗯
-                  span.iconQuoteContent.animated.tada.delay5 👎
-            pre
-              code.language-javascript.notify(title="Always 64-bit Floating Point").
-                3 * 2.1 => 6.300000000000001
-                .1 + .2 => 0.30000000000000004
-                (.1+.2).toFixed(2) => "0.30" // <- a STRING?!
-                Number((.1+.2).toFixed(2)) => .3 // but YUCK!
-            h2 Fix with <a href="http://mathjs.org/" target="off">Math.js</a>
-            pre
-              code.language-javascript.
-                const math = require('mathjs')
-                math.add(.1, .2) => .3 // 😄
-
-      section.midnight.washi
-          .box
-            h2 What About Big Numbers?
-            h2: a(href="https://www.npmjs.com/package/big-integer") big-integer
-            .mid Note: &nbsp;<a href="https://tc39.github.io/proposal-bigint/">BigInt is now native in JS!</a>
+              module.exports = function getJwt(request) {
+                let cookie = request.headers.cookie
+                if(typeof cookie === "undefined") return null
+                for (let x=0; x&lt;cookie.length; x++) {
+                  let cookieVal = cookie[x].value
+                  if (cookieVal) {
+                    let cookies = cookieVal.split(";")
+                    for (let y=0; y&gt;cookies.length; y++) {
+                      let pair = cookies[y].trim().split("=")
+                      if (pair[0] === "jwt") {
+                          return pair[1]
+                      }
+                    }
+                  }
+                }
+                return null
+              }
+          .box.right
+            h4.title Simplified
             pre: code.language-javascript.
-                const bigInt = require('big-integer')
+              /*
+              Lambda at the Edge headers are array objects.
+              request.headers.cookie = [{
+                key: 'cookie',
+                value: '...; jwt=...; ...'
+              }]
+              ...our auth service sets one cookie header
+              */
+              module.exports = function getJwt(request) {
+                const h = request.headers.cookie
+                if (!h || !h.length) return null
+                
+                const cookies = h[0].value.replace(/\s/g,'')
+                const matches = cookies.match(/jwt=([^;]+)/)
+                return matches ? matches[1] : null
+              }
 
-                const bigHex = bigInt('7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60c', 16)
-                const googol = bigInt("1e100")
-              
-                console.log(bigHex.next().toString(16))
-                => 7ef5656580e5766bdba03da2d50ecc6dd3261c244531ae115953e2712e60f60d
+      section
+        .fullscreen
+          img.fill(src="images/jwtUtil.png")
 
-                // https://twitter.com/antic/status/1109957641407791104
-                const ferrier = bigInt('20988936657440586486151264256610222593863921') // base10
-                console.log(ferrier.toString(16), '🤯') // to base16
-                => f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f1 🤯
-            a(href="https://twitter.com/antic/status/1109957641407791104") cool primes
+      section.escheresque.midnight
+        .box.z150
+          h2 OOP is <span class="em-red animated zoomIn">Overkill</span>
+          .mid ok for monoliths, bad for tiny micro modules
+          h2 Use Modular Functions
       
+      section.escheresque.midnight
+        .box.notify(title="🤔", data-position="right middle")
+          .mid ./lib/jwtUtil.js ➡️ ./lib/verify.js
+          pre.line-numbers(data-line="5-10"): code.language-javascript.
+            const base64url = require('base64url')
+            const jwkToPem = require('jwk-to-pem')
+            const jwt = require('jsonwebtoken')
+            const keys = {} // kid indexed keys
+            require('../data/jwks').keys.forEach((jwk)=>{
+                keys[jwk.kid] = {
+                    jwk: jwk,
+                    pem: jwkToPem(jwk)
+                }
+            })
+            module.exports = (token) => {
+                try {
+                    const head = JSON.parse(
+                        base64url.decode(token.split('.',1)[0])
+                    )
+                    const key = keys[head.kid]
+                    return jwt.verify(token, key.pem)
+                } catch(err) {
+                    throw err
+                }
+            }
+
+      section.escheresque.midnight
+        .multibox
+          h2.title Why Parse PEMs Every Hit?
+          .title.mid Generate them once!
+          .box.left
+            .mid ./lib/makekeys.js (temp)
+            pre: code.language-javascript.
+              const jwks = require('../data/jwks').keys
+              const jwkToPem = require('jwk-to-pem')
+              const fs = require('fs')
+
+              const keys = {}
+
+              jwks.forEach((jwk)=>{
+                  keys[jwk.kid] = jwkToPem(jwk)
+              })
+
+              fs.writeFileSync(
+                  `${__dirname}/../data/keys.json`, 
+                  JSON.stringify(keys, null, 2)
+              )
+          .box.right
+            pre: code.language-bash.
+              node ./lib/makekeys.js
+            .mid ./data/keys.json
+            pre: code.language-javascript.
+              {
+                "rsa03": "-----BEGIN PUBLIC KEY-----\n...",
+                "rsa02": "-----BEGIN PUBLIC KEY-----\n..."
+              }
+
+      section.escheresque.midnight
+        .box.notify(title="we could keep reducing... do we need multiple keys?", data-position="bottom center")
+          .mid ./lib/verify.js
+          pre.line-numbers: code.language-javascript.
+            const base64url = require('base64url')
+            const jwt = require('jsonwebtoken')
+            const keys = require('../data/keys')
+
+            module.exports = (token)=>{
+                try {
+                    const head = JSON.parse(
+                        base64url.decode(token.split('.',1)[0])
+                    )
+                    return jwt.verify(token, keys[head.kid])
+                } catch(err) {
+                    throw err
+                }
+            }
+      section.escheresque.midnight
+        .box.notify(title="we could keep reducing... do we need multiple keys?", data-position="bottom center")
+          .mid ./auth.js (Lambda@Edge Function)
+          pre.line-numbers: code.language-javascript.
+            const getJwt = require('./lib/getJwt')
+            const jwt = require('jsonwebtoken')
+            const pem = '-----BEGIN PUBLIC KEY--REDACTED\n'
+            const response401 = require('./lib/response401')
+
+            exports.handler = (event, context, callback) => {
+                const request = event.Records[0].cf.request
+                var token = getJwt(request)
+                if (!token) return callback(null, response401('bad token'))
+                // use JWT library to validate token against IdP public key
+                jwt.verify(token, pem, function(err, decoded) {
+                    if(err) return callback(null, response401('bad token'))
+                    // cors support (required for S3 passthrough to CloudFront)
+                    request.headers['access-control-allow-origin'] = [ 
+                        { key: 'Access-Control-Allow-Origin', value: '*' } 
+                    ]
+                    // allow request to proxy to S3
+                    return callback(null, request)
+                })
+            }
+
+      section.escheresque.midnight
+        .multibox
+          .box.left.top
+            h3: span.em-red &gt; 800 SLOC
+            .mid into
+            h3: span.em-green 36 SLOC!
+          .box.left.bottom.smaller
+            .mid ./auth.js
+            pre.line-numbers: code.language-javascript.
+              const getJwt = require('./lib/getJwt')
+              const jwt = require('jsonwebtoken')
+              const pem = '-----BEGIN PUBLIC KEY--REDACTED\n'
+              const response401 = require('./lib/response401')
+              exports.handler = (event, context, callback) => {
+                const request = event.Records[0].cf.request
+                var token = getJwt(request)
+                if (!token) return callback(null, response401('bad token'))
+                jwt.verify(token, pem, function(err, decoded) {
+                  if(err) return callback(null, response401('bad token'))
+                  request.headers['access-control-allow-origin'] = [ 
+                    { key: 'Access-Control-Allow-Origin', value: '*' } 
+                  ]
+                  return callback(null, request)
+                })
+              }
+          .box.right.top.smaller
+            .mid ./lib/getJwt.js
+            pre.line-numbers: code.language-javascript.
+              module.exports = function getJwt(request) {
+                const header = request.headers.cookie
+                if (!header || !header.length) {
+                  return null // no cookies
+                }
+                const cookies = header[0].value.replace(/\s/g,'')
+                const matches = cookies.match(/jwt=([^;]+)/)
+                return matches ? matches[1] : null
+              }
+          .box.right.bottom.smaller
+            .mid ./lib/response401.js
+            pre.line-numbers: code.language-javascript.
+              module.exports = function response401(text) {
+                return {
+                  body: `&lt;script type="text/javascript"&gt;
+                  sessionStorage.redirectUri = window.location.href;
+                  window.location.href='https://REDACTED_IDP_URL';
+                  &lt;/script&gt;`,
+                  bodyEncoding: 'text',
+                  status: '401',
+                  statusDescription: 'Authentication Required (' + text + ')'
+                }
+              }
       section
         .fullscreen
           img.fill(src="images/dondavis-Spacecolony1.jpg")
+          .credit.em-blue.left 🤷 Why Blue Origin?
           .credit.em-blue credit:&nbsp;
             a(href="http://www.donaldedavis.com/PARTS/allyours.html",target="off") Don Davis
         .box
@@ -271,46 +734,57 @@ html(lang='en')
           img.fillh.left(src="images/dondavis-DDcylECL.jpg")
           .credit credit:&nbsp;
             a(href="http://www.donaldedavis.com/PARTS/allyours.html",target="off") Don Davis
-        .box
-          h1 ...
+        .box.right
+          h2 Complete Environmental Control
+          ul
+            li Arbitrary Gravity
+            li: span.notify(title="🚫 earthquakes<br />🚫 volcanoes<br />🚫 hurricanes") Arbitrary Weather
+            li Sustainability
+            li Collision Avoidance
       
       section
         .fullscreen
           img.fill(src="images/nasa-OLlj17tUZnU-unsplash.jpg")
           .credit credit:&nbsp;
             a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
-        .box
-          h1 ...
-
-      section.gplay.jellybean
-        .fullscreen
-          img.fill(src="images/mlclass.png")
-        .box.black
-          h1 Machine Learning Class
-          a(href="https://github.com/atomantic/ml_class") github.com/atomantic/ml_class
-          .mid <span class="reg">🙀</span> "...will automation&nbsp;<span class="em-red animated flash delay5">destroy</span> &nbsp;<strike class="notify" title="humans" data-position="bottom center">human jobs</strike>?"
-
-      section.gplay.jellybean
-        .box.dark
-          h2 Automate Backup and Recovery
-          .mid with dotfiles
-          img(src="images/dotfiles.gif", width="80%")
-          ul
-            li: a(href="https://dotfiles.github.io") Dotfiles Directory
-            li: a(href="https://github.com/atomantic/dotfiles") My Dotfiles (github.com/atomantic/dotfiles)
+        .box.left.top
+          h1 The next step
 
       section
         .fullscreen
-          x-gif(src="images/slow_clap.gif", fill, speed=.5, n-times=10)
+          img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
+          .credit credit:&nbsp;
+            a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
+        .box.bottom
+          h1 what a time to be alive
+      
+      section
+        .fullscreen
+          img.fill(src="images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg")
+          .credit credit:&nbsp;
+            a(href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Jeremy Thomas
+        .box
+          h1 The Future
+          ul
+            li spread out (more baskets)
+            li singularity
+            li black hole energy
+            li Escape the heat death?
+
+      section
+        .fullscreen
+          img.fill(src="images/nasa-Q1p7bh3SHj8-unsplash.jpg")
+          .credit credit:&nbsp;
+            a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
         .multibox
-          .box.left.top.black.z120
-            h1.mid Cheers!
+          .box.left.top.z120
+            h1.mid Thanks!
             h2 🤔 Q&amp;A?
             .line
               .me.center
             h2
               span.notranslate.emoticon.rocking \[._.]/
-              span.notranslate &nbsp; Adam Eivy
+              span.notranslate &nbsp; <a href="https://adameivy.com" target="off">Adam Eivy</a>
             blockquote
               h3
                 a(href='https://bit.ly/adam_blue')
@@ -325,5 +799,6 @@ html(lang='en')
                   i.fa.fa-github-square
                   | &nbsp;/atomantic
             small: a.back(href='#1') &nbsp; restart
-    
+        .box.top.right
+
     script(src='build/build.js')
