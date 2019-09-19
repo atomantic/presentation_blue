@@ -618,6 +618,9 @@ h1 img {
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
+.notifyjs-container a {
+  color: #036;
+}
 @-webkit-keyframes rocking {
   from {
     -webkit-transform: rotate(-5deg);
