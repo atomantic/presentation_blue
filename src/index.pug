@@ -38,17 +38,19 @@ html(lang='en')
           x-gif(src="images/perfect_beardscratch.gif" fill)
           .credit cinema gif thanks to:&nbsp;
             a(href="http://www.gideondevilliers.com",target="off") gideon de villiers
-        .box.left.bottom.darker
-          h2 Who am I?
-          ul
-            li Principal SWE, Disney
-            li 17 years in Industry
-            li Full Stack (Data, UI, APIs, etc)
-            li Teaching
-            li DevSecOps
-            li Machine Learning
-            li: span.notify(title="Robert Heinlein") "Specialization is for Insects"
-
+        .multibox
+          .box.left.bottom.darker
+            h2 Who am I?
+            ul
+              li Principal SWE, Disney
+              li 17 years in Industry
+              li Full Stack (Data, UI, APIs, etc)
+              li Teaching
+              li DevSecOps
+              li Machine Learning
+              li: span.notify(title="Robert Heinlein") "Specialization is for Insects"
+          .box.right
+            .mid obsessive
       section
         .fullscreen
           img.fill(src="images/photo-1524995997946-a1c2e315a42f.jpeg")
@@ -178,7 +180,7 @@ html(lang='en')
             li Node.js Performance &amp; Oddities
             li Security for Web Devs
             li Lambda/Serverless
-            li Automation &amp; CI/CD
+            li: span.notify(title="gitflow ➡️ release everything") Automation &amp; CI/CD
             li Developer Experience
       
       section
@@ -271,7 +273,7 @@ html(lang='en')
         .box
           h2 <span class="em-blue">Snoden</span> &amp; <span class="em-green">RoSS</span> Together
           ul
-            li: span.notify(title="Essentialism by Greg McKeown") I left committe to focus on other things
+            li: span.notify(title="Essentialism by Greg McKeown") Left committee to focus on other things
             li Converted Intern to Full-Time
             li Many improvements beyond my initial version
             li Still running today
@@ -283,7 +285,7 @@ html(lang='en')
           h1 Kubernetes Microservices
           .mid Name: [redacted]
           ul
-            li Node.js
+            li Node.js APIs
             li Vanilla JavaScript in Browsers (deployed everywhere)
             li: a.notify(href="http://containersummit.io/city-series/2016/seattle", target="off", title="Fireside Chat: 2016") Kubernetes (GKE)
             li CI/CD DevSecOps (<span class="em-green">20x</span> daily deployments)
@@ -306,7 +308,7 @@ html(lang='en')
         .fullscreen
         .box
           h1 Performance Tuning
-          .mid JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header String
+          .mid Maximizing TPS
           img.fillw(src="images/nodeperf_jsonparser_vs_headers.png")
 
       section.littleboxes.blue
@@ -346,7 +348,8 @@ html(lang='en')
             a(href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") SpaceX
         .box.z150
           h2 What if we don't POST a body at all?
-          .mid send the data as a HEADER string...
+          .mid send the data as a header string...
+          .mid JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header
       
       section.littleboxes.blue
         .fullscreen
@@ -389,9 +392,9 @@ html(lang='en')
           ul
             li <span class="em-red">Java</span> developers wrote <span class="em-green">Node.js</span> code
             li Large codebase
+            li <span class="em-red">1 MB</span> limit for CloudFront Lambda@Edge
             li Solution Required IdP Client Secret
             li <span class="em-red">No Secrets</span> in Lambda@Edge!
-            li <span class="em-red">1 MB</span> limit for CloudFront Lambda@Edge
             li: span.notify(title="(every CSS/image/3rd party lib file)") Excessive Lambda Hits
 
       section.white
@@ -446,6 +449,23 @@ html(lang='en')
                 img.fill(src="images/IdPLambda-flow-2.png")
 
       section.escheresque.midnight
+        .box.left.notify(title="❎ no hash eval loops<br/>✅ RegExp<br/>❎ no setCookie Function<br/>✅ use max-age<br/>✅ Redirect (from 401 handler)", data-position="right middle")
+          .mid jwt.html (in S3, not Lambda)
+          pre: code.language-javascript.line-numbers.
+            &lt;html&gt;&lt;head&gt;&lt;script type="text/javascript"&gt;
+              var h = window.location.hash
+              // capture value until '&' or end of line invalidates capture
+              var tokenMatch = h.match(/access_token=([^&]+)/)
+              var expiresMatch = h.match(/expires_in=([^&]+)/)
+              if(tokenMatch && expiresMatch){
+                document.cookie = 'jwt='+tokenMatch[1]+';max-age='+expiresMatch[1]
+              }
+              var target = sessionStorage.redirectUri||'/'
+              sessionStorage.clear()
+              window.location = target
+            &lt;/script&gt;&lt;/head&gt;&lt;/html&gt;
+         
+      section.escheresque.midnight
         .box
           h1 Refactoring S3 Auth Lambda
           .mid Guiding Ideas
@@ -457,29 +477,12 @@ html(lang='en')
             li ❌ Delete Code <span class="em-red">original &gt;800 SLOC</span>
 
       section.escheresque.midnight
-        .box.left.notify(title="❎ no hash eval loops<br/>❎ no setCookie Function<br/>✅ RegExp<br/>✅ Redirect (from 401 handler)", data-position="right middle")
-          .mid jwt.html (in S3, not Lambda)
-          pre: code.language-javascript.line-numbers.
-            &lt;html&gt;&lt;head&gt;&lt;script type="text/javascript"&gt;
-              var h = window.location.hash
-              var tokenMatch = h.match(/access_token=([^&]+)/)
-              var expiresMatch = h.match(/expires_in=([^&]+)/)
-              if(tokenMatch && expiresMatch){
-                document.cookie = 'jwt='+tokenMatch[1]+';max-age='+expiresMatch[1]
-              }
-              var target = sessionStorage.redirectUri||'/'
-              if(target.includes('jwt.html')) target = '/'
-              sessionStorage.clear()
-              window.location = target
-            &lt;/script&gt;&lt;/head&gt;&lt;/html&gt;
-         
-      section.escheresque.midnight
-        .box
+        .box.left.notify(title="👎 jwtUtil.js<br/>✅ modular<br/>👎 Try/Catch", data-position="right middle")
           h2 First Stab
           .mid lambda/auth.js
           pre.line-numbers(data-line="11"): code.language-javascript.
             const getJwt = require('./lib/getJwt')
-            const JwtUtil = require('./lib/jwtUtil')
+            const JwtUtil = require('./lib/jwtUtil') // legacy, TODO: refactor
             const jwt = new JwtUtil(require('./data/jwks'))
             const response401 = require('./lib/response401')
 
@@ -625,7 +628,7 @@ html(lang='en')
               }
 
       section.escheresque.midnight
-        .box.notify(title="we could keep reducing... do we need multiple keys?", data-position="bottom center")
+        .box.notify(title="🤔 keep reducing... do we need multiple keys?", data-position="bottom center")
           .mid ./lib/verify.js
           pre.line-numbers: code.language-javascript.
             const base64url = require('base64url')
@@ -643,7 +646,7 @@ html(lang='en')
                 }
             }
       section.escheresque.midnight
-        .box.notify(title="we could keep reducing... do we need multiple keys?", data-position="bottom center")
+        .box.left.notify(title="✅ Fewer Modules<br/>✅ No JSON.parse<br/>✅ No Try/Catch<br/>", data-position="right middle")
           .mid ./auth.js (Lambda@Edge Function)
           pre.line-numbers: code.language-javascript.
             const getJwt = require('./lib/getJwt')
@@ -654,10 +657,10 @@ html(lang='en')
             exports.handler = (event, context, callback) => {
                 const request = event.Records[0].cf.request
                 var token = getJwt(request)
-                if (!token) return callback(null, response401('bad token'))
+                if (!token) return callback(null, response401)
                 // use JWT library to validate token against IdP public key
                 jwt.verify(token, pem, function(err, decoded) {
-                    if(err) return callback(null, response401('bad token'))
+                    if(err) return callback(null, response401)
                     // cors support (required for S3 passthrough to CloudFront)
                     request.headers['access-control-allow-origin'] = [ 
                         { key: 'Access-Control-Allow-Origin', value: '*' } 
@@ -672,7 +675,7 @@ html(lang='en')
           .box.left.top
             h3: span.em-red &gt; 800 SLOC
             .mid into
-            h3: span.em-green 36 SLOC!
+            h3: span.em-green 34 SLOC!
           .box.left.bottom.smaller
             .mid ./auth.js
             pre.line-numbers: code.language-javascript.
@@ -683,9 +686,9 @@ html(lang='en')
               exports.handler = (event, context, callback) => {
                 const request = event.Records[0].cf.request
                 var token = getJwt(request)
-                if (!token) return callback(null, response401('bad token'))
+                if (!token) return callback(null, response401)
                 jwt.verify(token, pem, function(err, decoded) {
-                  if(err) return callback(null, response401('bad token'))
+                  if(err) return callback(null, response401)
                   request.headers['access-control-allow-origin'] = [ 
                     { key: 'Access-Control-Allow-Origin', value: '*' } 
                   ]
@@ -707,17 +710,57 @@ html(lang='en')
           .box.right.bottom.smaller
             .mid ./lib/response401.js
             pre.line-numbers: code.language-javascript.
-              module.exports = function response401(text) {
-                return {
-                  body: `&lt;script type="text/javascript"&gt;
-                  sessionStorage.redirectUri = window.location.href;
-                  window.location.href='https://REDACTED_IDP_URL';
-                  &lt;/script&gt;`,
-                  bodyEncoding: 'text',
-                  status: '401',
-                  statusDescription: 'Authentication Required (' + text + ')'
-                }
+              module.exports = {
+                body: `&lt;script type="text/javascript"&gt;
+                sessionStorage.redirectUri = window.location.href;
+                window.location.href='https://REDACTED_IDP_URL';
+                &lt;/script&gt;`,
+                bodyEncoding: 'text',
+                status: '401',
+                statusDescription: 'Authentication Required'
               }
+      section.escheresque.midnight
+        .multibox
+          .box.left.top
+            h3: span.em-green 34 SLOC
+            .mid into
+            h3: span.em-red 28 SLOC...
+          .box.bottom.left
+            ul
+              li harder to unit test
+              li harder to read
+          .box.top.right.smaller
+            .mid ./auth.js
+            pre.line-numbers: code.language-javascript.
+              const jwt = require('jsonwebtoken')
+              const pem = '-----BEGIN PUBLIC KEY--REDACTED\n'
+              const response401 = {
+                body: `&lt;script type="text/javascript"&gt;
+                sessionStorage.redirectUri = window.location.href;
+                window.location.href='https://REDACTED_IDP_URL';
+                &lt;/script&gt;`,
+                bodyEncoding: 'text',
+                status: '401',
+                statusDescription: 'Authentication Required'
+              }
+              exports.handler = (event, context, callback) => {
+                const request = event.Records[0].cf.request
+                const header = request.headers.cookie
+                if (!header || !header.length) 
+                  return callback(null, response401)
+                const cookies = header[0].value.replace(/\s/g,'')
+                const matches = cookies.match(/jwt=([^;]+)/)
+                const token = matches ? matches[1] : null
+                if (!token) return callback(null, response401)
+                jwt.verify(token, pem, function(err, decoded) {
+                  if(err) return callback(null, response401)
+                  request.headers['access-control-allow-origin'] = [ 
+                    { key: 'Access-Control-Allow-Origin', value: '*' } 
+                  ]
+                  return callback(null, request)
+                })
+              }
+              
       section
         .fullscreen
           img.fill(src="images/dondavis-Spacecolony1.jpg")
@@ -750,13 +793,13 @@ html(lang='en')
         .box.left.top
           h1 The next step
 
-      section
-        .fullscreen
-          img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
-          .credit credit:&nbsp;
-            a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
-        .box.bottom
-          h1 what a time to be alive
+      //- section
+      //-   .fullscreen
+      //-     img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
+      //-     .credit credit:&nbsp;
+      //-       a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
+      //-   .box.bottom
+      //-     h1 what a time to be alive
       
       section
         .fullscreen
@@ -764,12 +807,8 @@ html(lang='en')
           .credit credit:&nbsp;
             a(href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Jeremy Thomas
         .box
-          h1 The Future
-          ul
-            li spread out (more baskets)
-            li singularity
-            li black hole energy
-            li Escape the heat death?
+          h1 My Greatest Value
+          .mid Can I help?
 
       section
         .fullscreen
