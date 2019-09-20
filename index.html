@@ -33,17 +33,22 @@
           <x-gif src="images/perfect_beardscratch.gif" fill></x-gif>
           <div class="credit">cinema gif thanks to:&nbsp;<a href="http://www.gideondevilliers.com" target="off">gideon de villiers</a></div>
         </div>
-        <div class="box left bottom darker">
-          <h2>Who am I?</h2>
-          <ul>
-            <li>Principal SWE, Disney</li>
-            <li>17 years in Industry</li>
-            <li>Full Stack (Data, UI, APIs, etc)</li>
-            <li>Teaching</li>
-            <li>DevSecOps</li>
-            <li>Machine Learning</li>
-            <li><span class="notify" title="Robert Heinlein">"Specialization is for Insects"</span></li>
-          </ul>
+        <div class="multibox">
+          <div class="box left bottom darker">
+            <h2>Who am I?</h2>
+            <ul>
+              <li>Principal SWE, Disney</li>
+              <li>17 years in Industry</li>
+              <li>Full Stack (Data, UI, APIs, etc)</li>
+              <li>Teaching</li>
+              <li>DevSecOps</li>
+              <li>Machine Learning</li>
+              <li><span class="notify" title="Robert Heinlein">"Specialization is for Insects"</span></li>
+            </ul>
+          </div>
+          <div class="box right">
+            <div class="mid">obsessive</div>
+          </div>
         </div>
       </section>
       <section>
@@ -175,7 +180,7 @@
             <li>Node.js Performance &amp; Oddities</li>
             <li>Security for Web Devs</li>
             <li>Lambda/Serverless</li>
-            <li>Automation &amp; CI/CD</li>
+            <li><span class="notify" title="gitflow ➡️ release everything">Automation &amp; CI/CD</span></li>
             <li>Developer Experience</li>
           </ul>
         </div>
@@ -273,7 +278,7 @@ Options:
         <div class="box">
           <h2><span class="em-blue">Snoden</span> &amp; <span class="em-green">RoSS</span> Together</h2>
           <ul>
-            <li><span class="notify" title="Essentialism by Greg McKeown">I left committe to focus on other things</span></li>
+            <li><span class="notify" title="Essentialism by Greg McKeown">Left committee to focus on other things</span></li>
             <li>Converted Intern to Full-Time</li>
             <li>Many improvements beyond my initial version</li>
             <li>Still running today</li>
@@ -288,7 +293,7 @@ Options:
           <h1>Kubernetes Microservices</h1>
           <div class="mid">Name: [redacted]</div>
           <ul>
-            <li>Node.js</li>
+            <li>Node.js APIs</li>
             <li>Vanilla JavaScript in Browsers (deployed everywhere)</li>
             <li><a class="notify" href="http://containersummit.io/city-series/2016/seattle" target="off" title="Fireside Chat: 2016">Kubernetes (GKE)</a></li>
             <li>CI/CD DevSecOps (<span class="em-green">20x</span> daily deployments)</li>
@@ -316,7 +321,7 @@ Options:
         <div class="fullscreen"></div>
         <div class="box">
           <h1>Performance Tuning</h1>
-          <div class="mid">JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header String</div><img class="fillw" src="images/nodeperf_jsonparser_vs_headers.png">
+          <div class="mid">Maximizing TPS</div><img class="fillw" src="images/nodeperf_jsonparser_vs_headers.png">
         </div>
       </section>
       <section class="littleboxes blue">
@@ -356,7 +361,8 @@ Options:
         </div>
         <div class="box z150">
           <h2>What if we don't POST a body at all?</h2>
-          <div class="mid">send the data as a HEADER string...</div>
+          <div class="mid">send the data as a header string...</div>
+          <div class="mid">JSON.parse vs &nbsp;<span class="em-green">key`val``...</span>&nbsp; Header</div>
         </div>
       </section>
       <section class="littleboxes blue">
@@ -404,9 +410,9 @@ const params = Object.fromEntries(
           <ul>
             <li><span class="em-red">Java</span> developers wrote <span class="em-green">Node.js</span> code</li>
             <li>Large codebase</li>
+            <li><span class="em-red">1 MB</span> limit for CloudFront Lambda@Edge</li>
             <li>Solution Required IdP Client Secret</li>
             <li><span class="em-red">No Secrets</span> in Lambda@Edge!</li>
-            <li><span class="em-red">1 MB</span> limit for CloudFront Lambda@Edge</li>
             <li><span class="notify" title="(every CSS/image/3rd party lib file)">Excessive Lambda Hits</span></li>
           </ul>
         </div>
@@ -468,6 +474,24 @@ if (isUnprotected(request.uri)) {
         </div>
       </section>
       <section class="escheresque midnight">
+        <div class="box left notify" title="❎ no hash eval loops&lt;br/&gt;✅ RegExp&lt;br/&gt;❎ no setCookie Function&lt;br/&gt;✅ use max-age&lt;br/&gt;✅ Redirect (from 401 handler)" data-position="right middle">
+          <div class="mid">jwt.html (in S3, not Lambda)</div>
+          <pre><code class="language-javascript line-numbers">&lt;html&gt;&lt;head&gt;&lt;script type="text/javascript"&gt;
+  var h = window.location.hash
+  // capture value until '&' or end of line invalidates capture
+  var tokenMatch = h.match(/access_token=([^&]+)/)
+  var expiresMatch = h.match(/expires_in=([^&]+)/)
+  if(tokenMatch && expiresMatch){
+    document.cookie = 'jwt='+tokenMatch[1]+';max-age='+expiresMatch[1]
+  }
+  var target = sessionStorage.redirectUri||'/'
+  sessionStorage.clear()
+  window.location = target
+&lt;/script&gt;&lt;/head&gt;&lt;/html&gt;
+</code></pre>
+        </div>
+      </section>
+      <section class="escheresque midnight">
         <div class="box">
           <h1>Refactoring S3 Auth Lambda</h1>
           <div class="mid">Guiding Ideas</div>
@@ -481,29 +505,11 @@ if (isUnprotected(request.uri)) {
         </div>
       </section>
       <section class="escheresque midnight">
-        <div class="box left notify" title="❎ no hash eval loops&lt;br/&gt;❎ no setCookie Function&lt;br/&gt;✅ RegExp&lt;br/&gt;✅ Redirect (from 401 handler)" data-position="right middle">
-          <div class="mid">jwt.html (in S3, not Lambda)</div>
-          <pre><code class="language-javascript line-numbers">&lt;html&gt;&lt;head&gt;&lt;script type="text/javascript"&gt;
-  var h = window.location.hash
-  var tokenMatch = h.match(/access_token=([^&]+)/)
-  var expiresMatch = h.match(/expires_in=([^&]+)/)
-  if(tokenMatch && expiresMatch){
-    document.cookie = 'jwt='+tokenMatch[1]+';max-age='+expiresMatch[1]
-  }
-  var target = sessionStorage.redirectUri||'/'
-  if(target.includes('jwt.html')) target = '/'
-  sessionStorage.clear()
-  window.location = target
-&lt;/script&gt;&lt;/head&gt;&lt;/html&gt;
-</code></pre>
-        </div>
-      </section>
-      <section class="escheresque midnight">
-        <div class="box">
+        <div class="box left notify" title="👎 jwtUtil.js&lt;br/&gt;✅ modular&lt;br/&gt;👎 Try/Catch" data-position="right middle">
           <h2>First Stab</h2>
           <div class="mid">lambda/auth.js</div>
           <pre class="line-numbers" data-line="11"><code class="language-javascript">const getJwt = require('./lib/getJwt')
-const JwtUtil = require('./lib/jwtUtil')
+const JwtUtil = require('./lib/jwtUtil') // legacy, TODO: refactor
 const jwt = new JwtUtil(require('./data/jwks'))
 const response401 = require('./lib/response401')
 
@@ -656,7 +662,7 @@ fs.writeFileSync(
         </div>
       </section>
       <section class="escheresque midnight">
-        <div class="box notify" title="we could keep reducing... do we need multiple keys?" data-position="bottom center">
+        <div class="box notify" title="🤔 keep reducing... do we need multiple keys?" data-position="bottom center">
           <div class="mid">./lib/verify.js</div>
           <pre class="line-numbers"><code class="language-javascript">const base64url = require('base64url')
 const jwt = require('jsonwebtoken')
@@ -675,7 +681,7 @@ module.exports = (token)=>{
         </div>
       </section>
       <section class="escheresque midnight">
-        <div class="box notify" title="we could keep reducing... do we need multiple keys?" data-position="bottom center">
+        <div class="box left notify" title="✅ Fewer Modules&lt;br/&gt;✅ No JSON.parse&lt;br/&gt;✅ No Try/Catch&lt;br/&gt;" data-position="right middle">
           <div class="mid">./auth.js (Lambda@Edge Function)</div>
           <pre class="line-numbers"><code class="language-javascript">const getJwt = require('./lib/getJwt')
 const jwt = require('jsonwebtoken')
@@ -685,10 +691,10 @@ const response401 = require('./lib/response401')
 exports.handler = (event, context, callback) => {
     const request = event.Records[0].cf.request
     var token = getJwt(request)
-    if (!token) return callback(null, response401('bad token'))
+    if (!token) return callback(null, response401)
     // use JWT library to validate token against IdP public key
     jwt.verify(token, pem, function(err, decoded) {
-        if(err) return callback(null, response401('bad token'))
+        if(err) return callback(null, response401)
         // cors support (required for S3 passthrough to CloudFront)
         request.headers['access-control-allow-origin'] = [ 
             { key: 'Access-Control-Allow-Origin', value: '*' } 
@@ -705,7 +711,7 @@ exports.handler = (event, context, callback) => {
           <div class="box left top">
             <h3><span class="em-red">&gt; 800 SLOC</span></h3>
             <div class="mid">into</div>
-            <h3><span class="em-green">36 SLOC!</span></h3>
+            <h3><span class="em-green">34 SLOC!</span></h3>
           </div>
           <div class="box left bottom smaller">
             <div class="mid">./auth.js</div>
@@ -716,9 +722,9 @@ const response401 = require('./lib/response401')
 exports.handler = (event, context, callback) => {
   const request = event.Records[0].cf.request
   var token = getJwt(request)
-  if (!token) return callback(null, response401('bad token'))
+  if (!token) return callback(null, response401)
   jwt.verify(token, pem, function(err, decoded) {
-    if(err) return callback(null, response401('bad token'))
+    if(err) return callback(null, response401)
     request.headers['access-control-allow-origin'] = [ 
       { key: 'Access-Control-Allow-Origin', value: '*' } 
     ]
@@ -740,17 +746,62 @@ exports.handler = (event, context, callback) => {
           </div>
           <div class="box right bottom smaller">
             <div class="mid">./lib/response401.js</div>
-            <pre class="line-numbers"><code class="language-javascript">module.exports = function response401(text) {
-  return {
-    body: `&lt;script type="text/javascript"&gt;
-    sessionStorage.redirectUri = window.location.href;
-    window.location.href='https://REDACTED_IDP_URL';
-    &lt;/script&gt;`,
-    bodyEncoding: 'text',
-    status: '401',
-    statusDescription: 'Authentication Required (' + text + ')'
-  }
+            <pre class="line-numbers"><code class="language-javascript">module.exports = {
+  body: `&lt;script type="text/javascript"&gt;
+  sessionStorage.redirectUri = window.location.href;
+  window.location.href='https://REDACTED_IDP_URL';
+  &lt;/script&gt;`,
+  bodyEncoding: 'text',
+  status: '401',
+  statusDescription: 'Authentication Required'
 }</code></pre>
+          </div>
+        </div>
+      </section>
+      <section class="escheresque midnight">
+        <div class="multibox">
+          <div class="box left top">
+            <h3><span class="em-green">34 SLOC</span></h3>
+            <div class="mid">into</div>
+            <h3><span class="em-red">28 SLOC...</span></h3>
+          </div>
+          <div class="box bottom left">
+            <ul>
+              <li>harder to unit test</li>
+              <li>harder to read</li>
+            </ul>
+          </div>
+          <div class="box top right smaller">
+            <div class="mid">./auth.js</div>
+            <pre class="line-numbers"><code class="language-javascript">const jwt = require('jsonwebtoken')
+const pem = '-----BEGIN PUBLIC KEY--REDACTED\n'
+const response401 = {
+  body: `&lt;script type="text/javascript"&gt;
+  sessionStorage.redirectUri = window.location.href;
+  window.location.href='https://REDACTED_IDP_URL';
+  &lt;/script&gt;`,
+  bodyEncoding: 'text',
+  status: '401',
+  statusDescription: 'Authentication Required'
+}
+exports.handler = (event, context, callback) => {
+  const request = event.Records[0].cf.request
+  const header = request.headers.cookie
+  if (!header || !header.length) 
+    return callback(null, response401)
+  const cookies = header[0].value.replace(/\s/g,'')
+  const matches = cookies.match(/jwt=([^;]+)/)
+  const token = matches ? matches[1] : null
+  if (!token) return callback(null, response401)
+  jwt.verify(token, pem, function(err, decoded) {
+    if(err) return callback(null, response401)
+    request.headers['access-control-allow-origin'] = [ 
+      { key: 'Access-Control-Allow-Origin', value: '*' } 
+    ]
+    return callback(null, request)
+  })
+}
+</code></pre>
           </div>
         </div>
       </section>
@@ -788,25 +839,12 @@ exports.handler = (event, context, callback) => {
         </div>
       </section>
       <section>
-        <div class="fullscreen"><img class="fill" src="images/nasa-NuE8Nu3otjo-unsplash.jpg">
-          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@nasa?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">NASA</a></div>
-        </div>
-        <div class="box bottom">
-          <h1>what a time to be alive</h1>
-        </div>
-      </section>
-      <section>
         <div class="fullscreen"><img class="fill" src="images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg">
           <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Jeremy Thomas</a></div>
         </div>
         <div class="box">
-          <h1>The Future</h1>
-          <ul>
-            <li>spread out (more baskets)</li>
-            <li>singularity</li>
-            <li>black hole energy</li>
-            <li>Escape the heat death?</li>
-          </ul>
+          <h1>My Greatest Value</h1>
+          <div class="mid">Can I help?</div>
         </div>
       </section>
       <section>
