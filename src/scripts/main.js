@@ -1,9 +1,8 @@
 'use strict';
 window.$ = window.jQuery = require("jquery"); // needed for notify plugin
-require('notifyjs-browser')(window.$);
 require('prismjs');
-require('prismjs/components/prism-markup.min.js');
-require('prismjs/components/prism-yaml.min.js');
+// require('prismjs/components/prism-markup.min.js');
+// require('prismjs/components/prism-yaml.min.js');
 require('prismjs/components/prism-docker.min.js');
 require('prismjs/components/prism-bash.min.js');
 require('prismjs/components/prism-json.min.js');
@@ -53,31 +52,3 @@ deck.on('activate', function(/*slide*/){
     })
   }
 });
-
-
-$.notify.addStyle("instructions", {
-  html: "<div>" +
-    "<div class='image' data-notify-html='image'/>" +
-    "<div class='text-wrapper'>" +
-    "<div class='title' data-notify-html='title'/>" +
-    "<div class='text' data-notify-html='text'/>" +
-    "</div>" +
-    "<div class='clearfix'></div>" +
-    "</div>"
-});
-
-setTimeout(function() {
-    $('.notify').each(function(){
-      var $t = $(this);
-      $t.notify({
-        text: $t.attr('title')
-      },{
-        style: 'instructions',
-        className: $t.data('color') || 'base',
-        autoHide: false,
-        arrowShow: !$t.data('noarrow'),
-        gap: Number($t.data('gap') || 0),
-        position: $t.data('position') || 'right middle'
-      });
-    });
-}, 2000);
