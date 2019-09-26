@@ -10,7 +10,9 @@
   <body>
     <article id="presentation">
       <section>
-        <div class="fullscreen"><img class="fill" src="images/wallpaper.jpg"></div>
+        <div class="fullscreen"><img class="fill" src="images/wallpaper.jpg">
+          <div class="credit">Updated: 2019-09-25</div>
+        </div>
         <div class="multibox">
           <div class="box top left">
             <h2>Hello <span class="accent">Blue</span> Origin</h2>
@@ -19,12 +21,13 @@
               <div class="me center"></div>
             </h2>
           </div>
-          <div class="box top right notify" title="Swipe or use arrow keys to navigate &amp;rarr;" data-position="bottom center" data-noarrow="1">
+          <div class="box top right">
             <h2><a href="https://twitter.com/antic"><i class="fa fa-twitter-square"></i>&nbsp;@antic</a></h2>
             <h2><a href="https://adameivy.com"><i class="fa fa-external-link-square"></i>&nbsp;adameivy.com</a></h2>
             <h2><a href="https://bit.ly/adam_blue"><i class="fa fa-desktop"></i>&nbsp;bit.ly/adam_blue</a></h2>
             <h4>Talk Time: 50 minutes</h4>
-            <h4>Updated: 2019.09.19</h4>
+            <h4><a href="https://www.youtube.com/watch?v=U9GlN8OuMkc&amp;t=2m30s" target="off">Carl Sagan</a></h4>
+            <iframe width="280" height="157" src="https://www.youtube.com/embed/U9GlN8OuMkc?start=149" frameborder="0" allow="encrypted-media" allowfullscreen=""></iframe>
           </div>
         </div>
       </section>
@@ -53,18 +56,18 @@
       </section>
       <section>
         <div class="fullscreen"><img class="fill" src="images/photo-1524995997946-a1c2e315a42f.jpeg">
-          <div class="credit em-blue">credit:&nbsp;<a href="https://unsplash.com/@syinq?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Susan Yin</a></div>
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@syinq?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Susan Yin</a></div>
         </div>
         <div class="box left black">
           <h2>Unusual Education</h2>
           <ul class="noprefix">
             <li>📚 Started Self-Taught</li>
             <li>🏫 Web Development, Seattle Central</li>
+            <li>🚀 <span class="em-blue">Force Multiplier</span></li>
             <li>👨‍🏫️ Teaching at Seattle Central</li>
             <li>👨‍💻️ Startups</li>
             <li>🤳 My Own Startup</li>
             <li>🏰 Disney (8 years)</li>
-            <li>🚀 Force Multiplier</li>
           </ul>
         </div>
       </section>
@@ -138,6 +141,15 @@
         </div>
       </section>
       <section>
+        <div class="fullscreen"><img class="fillh" src="images/nasa-Yj1M5riCKk4-unsplash.jpg">
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@nasa" target="off">NASA</a></div>
+        </div>
+        <div class="box bottom">
+          <h1>We need more than 6 people in space!</h1>
+          <div class="mid">all aboard the ISS</div>
+        </div>
+      </section>
+      <section>
         <div class="fullscreen"><img class="fill" src="images/automation.jpg"></div>
         <div class="box">
           <h1>I like automation</h1>
@@ -191,6 +203,7 @@
       <section>
         <div class="fullscreen">
           <div class="credit em-blue left">Story 1</div>
+          <div class="credit"><a href="https://unsplash.com/@helloquence?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">credit: Helloquence</a></div>
         </div><img class="fillh" src="images/photo-1454165804606-c3d57bc86b40.jpeg">
         <div class="box">
           <h2>Open Source Software Approval Committee</h2>
@@ -203,9 +216,9 @@
       </section>
       <section>
         <div class="fullscreen">
-          <div class="credit em-blue left">😓 Status Quo</div>
-        </div><img class="fillh" src="images/photo-1454165804606-c3d57bc86b40.jpeg">
-        <div class="box black">
+          <div class="credit em-blue left">😓 Status Quo</div><img class="fillh" src="images/photo-1454506185424-4098f059c9e9.jpeg">
+        </div>
+        <div class="box">
           <h1>Hey, I want to use Node.js <span class="em-green">4.4.4</span></h1>
           <div class="mid">submit a ticket with a &nbsp;<span class="em-red">spreadsheet</span></div>
           <ul>
@@ -297,7 +310,7 @@ Options:
           <div class="mid">Name: [redacted]</div>
           <ul>
             <li>Node.js APIs</li>
-            <li>Vanilla JavaScript in Browsers (deployed everywhere)</li>
+            <li><span class="notify" title="deployed everywhere">Vanilla JavaScript in Browsers</span></li>
             <li><a class="notify" href="http://containersummit.io/city-series/2016/seattle" target="off" title="Fireside Chat: 2016">Kubernetes (GKE)</a></li>
             <li>CI/CD DevSecOps (<span class="em-green">20x</span> daily deployments)</li>
             <li>Telemetry-Driven Development</li>
@@ -360,7 +373,7 @@ Options:
       </section>
       <section class="littleboxes blue">
         <div class="fullscreen"><img class="fill" src="images/spacex-TV2gg2kZD1o-unsplash.jpg">
-          <div class="credit em-blue">credit:&nbsp;<a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">SpaceX</a></div>
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">SpaceX</a></div>
         </div>
         <div class="box z150">
           <h2>What if we don't POST a body at all?</h2>
@@ -769,9 +782,9 @@ exports.handler = (event, context, callback) => {
             <h3><span class="em-red">28 SLOC...</span></h3>
           </div>
           <div class="box bottom left">
-            <ul>
-              <li>harder to unit test</li>
-              <li>harder to read</li>
+            <ul class="noprefix">
+              <li>😟 harder to unit test</li>
+              <li>😩 harder to read</li>
             </ul>
           </div>
           <div class="box top right smaller">
@@ -809,9 +822,18 @@ exports.handler = (event, context, callback) => {
         </div>
       </section>
       <section>
+        <div class="fullscreen"><img class="fill" src="images/nasa-NuE8Nu3otjo-unsplash.jpg">
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@nasa?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">NASA</a></div>
+        </div>
+        <div class="box bottom">
+          <h1>Why Blue Origin?</h1>
+          <div class="mid"><span class="reg">🧒</span>&nbsp; Because of my daughter</div>
+        </div>
+      </section>
+      <section>
         <div class="fullscreen"><img class="fill" src="images/dondavis-Spacecolony1.jpg">
           <div class="credit em-blue left">🤷 Why Blue Origin?</div>
-          <div class="credit em-blue">credit:&nbsp;<a href="http://www.donaldedavis.com/PARTS/allyours.html" target="off">Don Davis</a></div>
+          <div class="credit">credit:&nbsp;<a href="http://www.donaldedavis.com/PARTS/allyours.html" target="off">Don Davis</a></div>
         </div>
         <div class="box">
           <h1>You Had Me</h1>
@@ -824,30 +846,66 @@ exports.handler = (event, context, callback) => {
           <div class="credit">credit:&nbsp;<a href="http://www.donaldedavis.com/PARTS/allyours.html" target="off">Don Davis</a></div>
         </div>
         <div class="box right">
-          <h2>Complete Environmental Control</h2>
           <ul>
             <li>Arbitrary Gravity</li>
             <li><span class="notify" title="🚫 earthquakes&lt;br /&gt;🚫 volcanoes&lt;br /&gt;🚫 hurricanes">Arbitrary Weather</span></li>
             <li>Sustainability</li>
             <li>Collision Avoidance</li>
+            <li><span class="notify" title="microservices" data-position="bottom center"> Let's maybe make more of them, smaller</span></li>
           </ul>
         </div>
       </section>
       <section>
         <div class="fullscreen"><img class="fill" src="images/nasa-OLlj17tUZnU-unsplash.jpg">
+          <div class="credit em-blue left">🤷 Why Blue Origin?</div>
           <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@nasa?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">NASA</a></div>
         </div>
         <div class="box left top">
-          <h1>The next step</h1>
+          <h1>Obvious next step</h1>
+        </div>
+      </section>
+      <section class="littleboxes blue">
+        <div class="fullscreen"><img class="fill" src="images/spacex--p-KCm6xB9I-unsplash.jpg">
+          <div class="credit em-blue left">🤷 Why Blue Origin?</div>
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@spacex?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">SpaceX</a></div>
+        </div>
+        <div class="box z150">
+          <h2><a href="https://www.antipope.org/charlie/blog-static/fiction/accelerando/accelerando-intro.html" target="off">Accelerando</a></h2>
+          <div class="mid">Charles Stross</div>
+        </div>
+      </section>
+      <section class="littleboxes blue">
+        <div class="fullscreen"><img class="fill" src="images/lux-interaction-UDETRRE5Mzc-unsplash.jpg">
+          <div class="credit em-blue left">🤷 Why Blue Origin?</div>
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@luxinteraction?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Lux Interaction</a></div>
+        </div>
+        <div class="box top right">
+          <h2>Virtual Reality</h2>
+          <div class="mid">racing against progress</div>
+        </div>
+      </section>
+      <section>
+        <div class="fullscreen"><img class="fill" src="images/vincentiu-solomon-ln5drpv_ImI-unsplash.jpg">
+          <div class="credit em-blue left">🤷 Why Blue Origin?</div>
+          <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Jeremy Thomas</a></div>
+        </div>
+        <div class="box z150">
+          <div class="mid">Because I Like</div>
+          <h2>🛸 Star Trek &gt; 💥 Star Wars</h2>
         </div>
       </section>
       <section>
         <div class="fullscreen"><img class="fill" src="images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg">
+          <div class="credit em-blue left">🤷 Why Blue Origin?</div>
           <div class="credit">credit:&nbsp;<a href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="off">Jeremy Thomas</a></div>
         </div>
         <div class="box">
           <h1>My Greatest Value</h1>
-          <div class="mid">🚀 Can I be a force multiplier here?</div>
+          <div class="mid">🚀 I want to be a force multiplier here</div>
+          <ul class="noprefix">
+            <li>😐 <strike>Mars</strike></li>
+            <li>😎 Space</li>
+          </ul>
         </div>
       </section>
       <section>
