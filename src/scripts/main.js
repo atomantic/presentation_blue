@@ -16,11 +16,11 @@ var bespoke = require('bespoke'),
   keys = require('bespoke-keys'),
   touch = require('bespoke-touch'),
   bullets = require('bespoke-bullets'),
-  backdrop = require('bespoke-backdrop'),
+  // backdrop = require('bespoke-backdrop'),
   // scale = require('bespoke-scale'),
   hash = require('bespoke-hash'),
-  progress = require('bespoke-progress'),
-  forms = require('bespoke-forms');
+  progress = require('bespoke-progress');
+  // forms = require('bespoke-forms');
 
 // Bespoke.js
 var deck = bespoke.from('article', [
@@ -28,11 +28,11 @@ var deck = bespoke.from('article', [
   keys(),
   touch(),
   bullets('.nextBullet > li'),
-  backdrop(),
+  // backdrop(),
   // scale(),
   hash(),
-  progress(),
-  forms()
+  progress()
+  // forms()
 ]);
 
 // $('x-gif').on('x-gif-finished', function(){

@@ -17,7 +17,7 @@ html(lang='en')
             .mid from
             h2.notranslate Adam Eivy <span class="rocking accent">\[._.]/</span>
               .me.center
-          .box.top.right.notify(title="Swipe or use arrow keys to navigate &rarr;", data-position="bottom center", data-noarrow="1")
+          .box.top.right
             h2
               a(href='https://twitter.com/antic')
                 i.fa.fa-twitter-square
@@ -32,7 +32,8 @@ html(lang='en')
                 | &nbsp;bit.ly/adam_blue
             h4 Talk Time: 50 minutes
             h4 Updated: 2019.09.19
-            
+            h4: a(href="https://www.youtube.com/watch?v=U9GlN8OuMkc&t=2m30s", target="off") Carl Sagan
+            iframe(width='280', height='157', src='https://www.youtube.com/embed/U9GlN8OuMkc?start=149', frameborder='0', allow='encrypted-media', allowfullscreen='')
       section
         .fullscreen
           x-gif(src="images/perfect_beardscratch.gif" fill)
@@ -65,7 +66,7 @@ html(lang='en')
             li 👨‍💻️ Startups
             li 🤳 My Own Startup
             li 🏰 Disney (8 years)
-            li 🚀 Force Multiplier
+            li 🚀 <span class="em-blue">Force Multiplier</span>
 
       section
         .fullscreen
@@ -108,7 +109,7 @@ html(lang='en')
             li play more music
             li better sleep
             li save money
-
+  
       section
         .fullscreen
           img.fill(src="images/yosh-ginsu-qexZLgMcbPc-unsplash.jpg")
@@ -134,6 +135,16 @@ html(lang='en')
             a(href="http://www.donaldedavis.com/PARTS/allyours.html",target="off") Don Davis
         .box.bottom
           h1 How's that Space Program?
+      
+      section
+        .fullscreen
+          img.fillh(src="images/nasa-Yj1M5riCKk4-unsplash.jpg")
+          .credit credit:&nbsp;
+            a(href="https://unsplash.com/@nasa",target="off") NASA
+        .box.bottom
+          h1 We need more than 6 people in space!
+          .mid all aboard the ISS
+          
       
       section
         .fullscreen
@@ -200,8 +211,8 @@ html(lang='en')
       section
         .fullscreen
           .credit.em-blue.left 😓 Status Quo
-        img.fillh(src="images/photo-1454165804606-c3d57bc86b40.jpeg")
-        .box.black
+        img.fillh(src="images/photo-1454506185424-4098f059c9e9.jpeg")
+        .box
           h1 Hey, I want to use Node.js <span class="em-green">4.4.4</span>
           .mid submit a ticket with a &nbsp;<span class="em-red">spreadsheet</span>
           ul
@@ -289,7 +300,7 @@ html(lang='en')
           .mid Name: [redacted]
           ul
             li Node.js APIs
-            li Vanilla JavaScript in Browsers (deployed everywhere)
+            li: span.notify(title="deployed everywhere") Vanilla JavaScript in Browsers
             li: a.notify(href="http://containersummit.io/city-series/2016/seattle", target="off", title="Fireside Chat: 2016") Kubernetes (GKE)
             li CI/CD DevSecOps (<span class="em-green">20x</span> daily deployments)
             li Telemetry-Driven Development
@@ -729,9 +740,9 @@ html(lang='en')
             .mid into
             h3: span.em-red 28 SLOC...
           .box.bottom.left
-            ul
-              li harder to unit test
-              li harder to read
+            ul.noprefix
+              li 😟 harder to unit test
+              li 😩 harder to read
           .box.top.right.smaller
             .mid ./auth.js
             pre.line-numbers: code.language-javascript.
@@ -766,6 +777,15 @@ html(lang='en')
               
       section
         .fullscreen
+          img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
+          .credit credit:&nbsp;
+            a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
+        .box.bottom
+          h1 Why Blue Origin?
+          .mid <span class="reg">🧒</span>&nbsp; Because of my daughter
+
+      section
+        .fullscreen
           img.fill(src="images/dondavis-Spacecolony1.jpg")
           .credit.em-blue.left 🤷 Why Blue Origin?
           .credit.em-blue credit:&nbsp;
@@ -781,37 +801,41 @@ html(lang='en')
           .credit credit:&nbsp;
             a(href="http://www.donaldedavis.com/PARTS/allyours.html",target="off") Don Davis
         .box.right
-          h2 Complete Environmental Control
           ul
             li Arbitrary Gravity
             li: span.notify(title="🚫 earthquakes<br />🚫 volcanoes<br />🚫 hurricanes") Arbitrary Weather
             li Sustainability
             li Collision Avoidance
+            li: span.notify(title="microservices", data-position="bottom center")  Let's maybe make more of them, smaller
       
       section
         .fullscreen
           img.fill(src="images/nasa-OLlj17tUZnU-unsplash.jpg")
+          .credit.em-blue.left 🤷 Why Blue Origin?
           .credit credit:&nbsp;
             a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
         .box.left.top
-          h1 The next step
-
-      //- section
-      //-   .fullscreen
-      //-     img.fill(src="images/nasa-NuE8Nu3otjo-unsplash.jpg")
-      //-     .credit credit:&nbsp;
-      //-       a(href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") NASA
-      //-   .box.bottom
-      //-     h1 what a time to be alive
+          h1 Obvious next step
       
+      section.littleboxes.blue
+        .fullscreen
+          img.fill(src="images/spacex--p-KCm6xB9I-unsplash.jpg")
+          .credit.em-blue.left 🤷 Why Blue Origin?
+          .credit.em-blue credit:&nbsp;
+            a(href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") SpaceX
+        .box.z150
+          h2: a(href="https://www.antipope.org/charlie/blog-static/fiction/accelerando/accelerando-intro.html", target="off") Accelerando
+          .mid Charles Stross
+
       section
         .fullscreen
           img.fill(src="images/jeremy-thomas-E0AHdsENmDg-unsplash.jpg")
+          .credit.em-blue.left 🤷 Why Blue Origin?
           .credit credit:&nbsp;
             a(href="https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText",target="off") Jeremy Thomas
         .box
           h1 My Greatest Value
-          .mid 🚀 Can I be a force multiplier here?
+          .mid 🚀 I want to be a force multiplier here
 
       section
         .fullscreen
